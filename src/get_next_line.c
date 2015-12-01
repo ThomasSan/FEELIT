@@ -47,7 +47,7 @@ char				*checkbuf(char *buf)
 
 int					get_next_line(int fd, char **line)
 {
-	static char		buf[31];
+	static char		buf[2048];
 	int				ret;
 
 	if (ft_error(fd, line) == -1)

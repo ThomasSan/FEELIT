@@ -67,14 +67,19 @@ int			checkfile(char *file, t_lst *list)
 	i = 1;
 	while(get_next_line(fd, &line) == 1)
 	{
-		if (goodline(line))
+		ft_putendl_fd(ft_itoa(i), 2);
+		if (goodline(line) == 1)
 		{
+			ft_putendl_fd(line, 2);
 			if (i % 5 != 0)
 				piece[(i % 5) - 1] = ft_strdup(line);
 			else if ((j = ft_strlen(line)) == 0)
+			{
+				ft_putendl_fd("piece", 2);
 				appendpiece(i, list, piece);
+			}
 			else
-				return (ft_parse_error(i, file, NULL, j));
+				return (ft_parse_error(i, file, line, j));
 		}
 		else
 			return (ft_parse_error(i, file, "badline", 0));
