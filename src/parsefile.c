@@ -6,13 +6,14 @@
 /*   By: mdebelle <mdebelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 19:04:25 by mdebelle          #+#    #+#             */
-/*   Updated: 2015/12/01 19:04:28 by mdebelle         ###   ########.fr       */
+/*   Updated: 2015/12/02 10:53:00 by tsanzey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
 #include "fillit.h"
 #include "get_next_line.h"
+#include <stdio.h>
 
 int			ft_parse_error(int i, char *file, char *more, int j)
 {
@@ -58,7 +59,6 @@ int			checkfile(char *file, t_lst *list)
 	char	*line;
 	int		i;
 	char	**piece;
-
 	int j;
 
 	if ((fd = open(file, O_RDONLY)) == -1)
@@ -67,10 +67,11 @@ int			checkfile(char *file, t_lst *list)
 	i = 1;
 	while(get_next_line(fd, &line) == 1)
 	{
-		ft_putendl_fd(ft_itoa(i), 2);
+	//	printf("line : %s\n", line);
+	//	ft_putendl_fd(ft_itoa(i), 2);
 		if (goodline(line) == 1)
 		{
-			ft_putendl_fd(line, 2);
+	//		ft_putendl_fd(line, 2);
 			if (i % 5 != 0)
 				piece[(i % 5) - 1] = ft_strdup(line);
 			else if ((j = ft_strlen(line)) == 0)

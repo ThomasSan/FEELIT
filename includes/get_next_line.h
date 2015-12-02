@@ -1,27 +1,18 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mdebelle <mdebelle@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/27 18:15:25 by mdebelle          #+#    #+#             */
-/*   Updated: 2015/01/31 12:22:54 by mdebelle         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
+# define BUF_SIZE 1
 
-# define BUFF_SIZE 1
-
+# include <string.h>
+# include <sys/types.h>
+# include <sys/uio.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include "libft.h"
 
-int					ft_error(int fd, char **line);
-char				*checkline(char *line);
-char				*checkbuf(char *buf);
-int					get_next_line(int fd, char **line);
+int    	get_next_line(int const fd, char **line);
+char	*ft_delete_read_line(char *s, int i);
+int		ft_buffer_filling(int const fd, char **str);
+int		ft_checking_new_line(char *s);
+int		get_next_line(int const fd, char **line);
 
 #endif
