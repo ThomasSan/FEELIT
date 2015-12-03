@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "fillit.h"
+#include "libft.h"
 #include <stdlib.h>
 
 char		**ft_alloc_tab(int	nbpieces)
@@ -19,25 +20,25 @@ char		**ft_alloc_tab(int	nbpieces)
 	int		i;
 
 	i = 0;
-	tab = (char **)malloc(sizeof(char *) * (nbpieces * 4) + 1);
+	tab = (char **)malloc(sizeof(char *) * (29));
 	while (i < nbpieces)
 	{
-		*tab = (char *)malloc(sizeof(char) * (nbpieces * 4) + 1);
+		*tab = (char *)malloc(sizeof(char) * (29));
 		i++;
 	}
 	return (tab);
 }
 
-char		**ft_tabinit(char **tab, int size)
+char		**ft_tabinit(char **tab)
 {
 	int	i;
 	int j;
 
 	i = 0;
-	while (i < (size * 4))
+	while (i < (29))
 	{
 		j = 0;
-		while (j < (size * 4) - 1)
+		while (j < (29) - 1)
 		{
 			tab[i][j] = '.';
 			j++;	
@@ -48,4 +49,16 @@ char		**ft_tabinit(char **tab, int size)
 		i++;
 	}
 	return (tab);
+}
+
+void		ft_displaytab(char **tab)
+{
+	int i;
+
+	i = 0;
+	while (tab[i])
+	{
+		ft_putstr(tab[i]);
+		i++;
+	}
 }

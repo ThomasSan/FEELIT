@@ -54,5 +54,8 @@ int					find_piece_coudes_ter(char *str);
 int					find_piece_square(char *str);
 void				ft_newnode(t_lst *l, int i, int type);
 void				show_list(t_lst *l);
+void				ft_displaytab(char **tab);
+char				**ft_alloc_tab(int nbpieces);
+char				**ft_tabinit(char **tab);
 
 #endif

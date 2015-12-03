@@ -61,6 +61,16 @@ void		show_list(t_lst *l)
 	}
 }
 
+void		ft_firstnode(t_lst *l, int i, int type)
+{
+	l->letter = (64 + (i / 5));
+	l->used = 0;
+	l->type = type;
+	l->pos[0] = 0;
+	l->pos[1] = 0;
+	l->next = NULL;
+}
+
 void		appendpiece(int i, t_lst *list, char *piece)
 {
 	int		type;
@@ -68,7 +78,7 @@ void		appendpiece(int i, t_lst *list, char *piece)
 	if ((type = find_piece_type(piece)) == 0)
 		exit (ft_piece_error(i / 5, "bad puzzle"));
 	if (i / 5 == 1)
-		ft_firstnode();
+		ft_firstnode(list, i, type);
 	else
 		ft_newnode(list, i, type);
 }
