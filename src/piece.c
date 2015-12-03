@@ -22,13 +22,18 @@ int		find_piece_type(char *str)
 		ft_putendl_fd("type: COUDE_1", 2);
 	else if ((ft_strcmp("###...#.........", str) == 0) || (ft_strcmp("....###...#.....", str) == 0) || (ft_strcmp("........###...#.", str) == 0) || (ft_strcmp(".###...#........", str) == 0) || (ft_strcmp(".....###...#....", str) == 0) || (ft_strcmp(".........###...#", str) == 0))
 		ft_putendl_fd("type: COUDE_2", 2);
-	else if ((ft_strcmp("#...###.........", str) == 0) || (ft_strcmp("....#...###.....", str) == 0) || (ft_strcmp("........#...###.", str) == 0) || (ft_strcmp("...#.###........", str) == 0) || (ft_strcmp(".......#.###....", str) == 0) || (ft_strcmp("...........#.###", str) == 0))
+	else if ((ft_strcmp("#...###.........", str) == 0) || (ft_strcmp("....#...###.....", str) == 0) || (ft_strcmp("........#...###.", str) == 0) || (ft_strcmp(".#...###........", str) == 0) || (ft_strcmp(".....#...###....", str) == 0) || (ft_strcmp(".........#...###", str) == 0))
 		ft_putendl_fd("type: COUDE_3", 2);
-	else if ((ft_strcmp("##..#...#.......", str) == 0) || (ft_strcmp(".##..#...#......", str) == 0) || (ft_strcmp("..##..#...#.....", str) == 0) || (ft_strcmp("....##..#...#...", str) == 0) || (ft_strcmp(".....##..#...#..", str) == 0) || (ft_strcmp("......##..#...#.", str) == 0))
+	else if ((ft_strcmp("..#.###.........", str) == 0) || (ft_strcmp("......#.###.....", str) == 0) || (ft_strcmp("..........#.###.", str) == 0) || (ft_strcmp("...#.###........", str) == 0) || (ft_strcmp(".......#.###....", str) == 0) || (ft_strcmp("...........#.###", str) == 0))
 		ft_putendl_fd("type: COUDE_4", 2);
-	else if ((ft_strcmp("##...#...#......", str) == 0) || (ft_strcmp(".##...#...#.....", str) == 0) || (ft_strcmp("..##...#...#....", str) == 0) || (ft_strcmp("....##...#...#..", str) == 0) || (ft_strcmp(".....##...#...#.", str) == 0) || (ft_strcmp("......##...#...#", str) == 0))
+	else if ((ft_strcmp("##..#...#.......", str) == 0) || (ft_strcmp(".##..#...#......", str) == 0) || (ft_strcmp("..##..#...#.....", str) == 0) || (ft_strcmp("....##..#...#...", str) == 0) || (ft_strcmp(".....##..#...#..", str) == 0) || (ft_strcmp("......##..#...#.", str) == 0))
 		ft_putendl_fd("type: COUDE_5", 2);
-	// 6 7 8
+	else if ((ft_strcmp("##...#...#......", str) == 0) || (ft_strcmp(".##...#...#.....", str) == 0) || (ft_strcmp("..##...#...#....", str) == 0) || (ft_strcmp("....##...#...#..", str) == 0) || (ft_strcmp(".....##...#...#.", str) == 0) || (ft_strcmp("......##...#...#", str) == 0))
+		ft_putendl_fd("type: COUDE_6", 2);
+	else if ((ft_strcmp(".#...#..##......", str) == 0) || (ft_strcmp("..#...#..##.....", str) == 0) || (ft_strcmp(".......#...#..##", str) == 0) || (ft_strcmp(".....#...#..##..", str) == 0) || (ft_strcmp("......#...#..##.", str) == 0) || (ft_strcmp(".......#...#..##", str) == 0))
+		ft_putendl_fd("type: COUDE_7", 2);
+	else if ((ft_strcmp("#...#...##......", str) == 0) || (ft_strcmp(".#...#...##.....", str) == 0) || (ft_strcmp("..#...#...##....", str) == 0) || (ft_strcmp("....#...#...##..", str) == 0) || (ft_strcmp(".....#...#...##.", str) == 0) || (ft_strcmp("......#...#...##", str) == 0))
+		ft_putendl_fd("type: COUDE_8", 2);
 	else if ((ft_strcmp("##...##.........", str) == 0) || (ft_strcmp(".##...##........", str) == 0) || (ft_strcmp("....##...##.....", str) == 0) || (ft_strcmp(".....##...##....", str) == 0) || (ft_strcmp("........##...##.", str) == 0) || (ft_strcmp(".........##...##", str) == 0))
 		ft_putendl_fd("type: ZIGZAG_1", 2);
 	else if ((ft_strcmp(".##.##..........", str) == 0) || (ft_strcmp("..##.##.........", str) == 0) || (ft_strcmp(".....##.##......", str) == 0) || (ft_strcmp("......##.##.....", str) == 0) || (ft_strcmp(".........##.##..", str) == 0) || (ft_strcmp("..........##.##.", str) == 0))
