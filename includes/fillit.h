@@ -52,7 +52,7 @@ int					find_piece_coudes(char *str);
 int					find_piece_coudes_bis(char *str);
 int					find_piece_coudes_ter(char *str);
 int					find_piece_square(char *str);
-t_lst				*ft_newnode(t_lst *l, int i, int type);
+void				ft_newnode(t_lst *l, int i, int type);
 void				show_list(t_lst *l);
 
 #endif

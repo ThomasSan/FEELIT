@@ -33,14 +33,14 @@ int			ft_piece_error(int i, char *file)
 	return (0);
 }
 
-t_lst		*ft_newnode(t_lst *l, int i, int type)
+void			ft_newnode(t_lst *l, int i, int type)
 {
 	t_lst	*new;
 	t_lst	*tmp;
 
 	tmp = l;
 	if(!(new = (t_lst*)malloc(sizeof(t_lst))))
-		return (NULL);
+		return ;
 	new->letter = (64 + (i / 5));
 	new->used = 0;
 	new->type = type;
@@ -50,7 +50,6 @@ t_lst		*ft_newnode(t_lst *l, int i, int type)
 	while (tmp->next)
 		tmp = tmp->next;
 	tmp->next = new;
-	return (l);
 }
 
 void		show_list(t_lst *l)
@@ -65,11 +64,13 @@ void		show_list(t_lst *l)
 void		appendpiece(int i, t_lst *list, char *piece)
 {
 	int		type;
-	t_lst	*newback;
 
 	if ((type = find_piece_type(piece)) == 0)
 		exit (ft_piece_error(i / 5, "bad puzzle"));
-	newback = ft_newnode(list, i, type);
+	if (i / 5 == 1)
+		ft_firstnode();
+	else
+		ft_newnode(list, i, type);
 }
 
 int			goodline(char *str)
