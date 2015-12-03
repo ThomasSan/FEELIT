@@ -26,10 +26,12 @@ int			ft_parse_error(int i, char *file)
 
 void		appendpiece(int i, t_lst *list, char *piece)
 {
+	int type;
 	(void)i;
 	(void)list;
 	ft_putendl_fd(piece, 2);
-//	type = find_piece_type(line);
+	if ((type = find_piece_type(piece)) == 0)
+		ft_parse_error(i, "lol");
 	return ;
 }
 

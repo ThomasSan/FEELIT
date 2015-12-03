@@ -43,5 +43,6 @@ typedef struct		s_lst
 }					t_lst;
 
 int		checkfile(char *file, t_lst *list);
+int		find_piece_type(char *str);
 
 #endif
