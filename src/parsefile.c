@@ -12,27 +12,23 @@
 
 #include <fcntl.h>
 #include "fillit.h"
-#include "get_next_line.h"
+#include "gnl.h"
 #include <stdio.h>
 
-int			ft_parse_error(int i, char *file, char *more, int j)
+int			ft_parse_error(int i, char *file)
 {
 	ft_putstr_fd("Parse error around line ", 2);
 	ft_putstr_fd(ft_itoa(i), 2);
 	ft_putstr_fd(" in ", 2);
 	ft_putendl_fd(file, 2);
-	if (more != NULL)
-		ft_putendl_fd(more, 2);
-	else 
-		ft_putendl_fd(ft_itoa(j), 2);
 	return (0);
 }
 
-void		appendpiece(int i, t_lst *list, char **piece)
+void		appendpiece(int i, t_lst *list, char *piece)
 {
 	(void)i;
 	(void)list;
-	(void)piece;
+	ft_putendl_fd(piece, 2);
 //	type = find_piece_type(line);
 	return ;
 }
@@ -58,32 +54,32 @@ int			checkfile(char *file, t_lst *list)
 	int		fd;
 	char	*line;
 	int		i;
-	char	**piece;
-	int j;
+	char	*piece;
 
 	if ((fd = open(file, O_RDONLY)) == -1)
 		return (0);
-	piece = (char **)malloc(sizeof(char *) * 5);
 	i = 1;
 	while(get_next_line(fd, &line) == 1)
 	{
-	//	printf("line : %s\n", line);
-	//	ft_putendl_fd(ft_itoa(i), 2);
 		if (goodline(line) == 1)
 		{
-	//		ft_putendl_fd(line, 2);
 			if (i % 5 != 0)
-				piece[(i % 5) - 1] = ft_strdup(line);
-			else if ((j = ft_strlen(line)) == 0)
 			{
-				ft_putendl_fd("piece", 2);
+				if (i%5 == 1)
+					piece = ft_strdup(line);
+				else 
+					piece = ft_strjoin(piece, line);
+			}
+			else if (ft_strlen(line) == 0)
+			{
 				appendpiece(i, list, piece);
+				free(piece);
 			}
 			else
-				return (ft_parse_error(i, file, line, j));
+				return (ft_parse_error(i, file));
 		}
 		else
-			return (ft_parse_error(i, file, "badline", 0));
+			return (ft_parse_error(i, file));
 		free(line);
 		i++;
 	}

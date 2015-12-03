@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fill.h"
+#include "fillit.h"
 #include <stdlib.h>
 
 char		**ft_alloc_tab(int	nbpieces)
@@ -19,10 +19,10 @@ char		**ft_alloc_tab(int	nbpieces)
 	int		i;
 
 	i = 0;
-	tab = (char **)malloc(sizeof(char *) * (nbpieces * 4) + 1;
+	tab = (char **)malloc(sizeof(char *) * (nbpieces * 4) + 1);
 	while (i < nbpieces)
 	{
-		*tab = (char *)malloc(sizeof(char) * nbpieces * 4) + 1;
+		*tab = (char *)malloc(sizeof(char) * (nbpieces * 4) + 1);
 		i++;
 	}
 	return (tab);

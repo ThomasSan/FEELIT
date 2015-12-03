@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 NAME = fillit
-SRC = main.c get_next_line.c parsefile.c
+SRC = main.c gnl.c parsefile.c fill.c piece.c
 OBJ = $(SRC:%.c=obj/%.o)
 
 CXX = clang
