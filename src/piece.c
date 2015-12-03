@@ -14,8 +14,9 @@ int 	find_piece_type(char *str)
 {
 
 if (ft_strcmp ("...#...#...#...#", str) == 0)
-
+	ft_putend_fd("barre_h");
 else if (ft_strcmp("..#...#...#...#.", str) == 0)
+	
 else if (ft_strcmp(".#...#...#...#..", str) == 0)
 else if (ft_strcmp("#...#...#...#...", str) == 0)
 else if (ft_strcmp("####............", str) == 0)
