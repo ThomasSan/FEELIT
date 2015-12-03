@@ -13,8 +13,8 @@
 #ifndef FILLIT_H
 # define FILLIT_H
 
-# define BARRE_1		1
-# define BARRE_2		2
+# define BARRE_1	1
+# define BARRE_2	2
 # define COUDE_1	3
 # define COUDE_2	4
 # define COUDE_3	5
@@ -42,15 +42,17 @@ typedef struct		s_lst
 	struct s_lst	*next;
 }					t_lst;
 
-int		checkfile(char *file, t_lst *list);
-int		find_piece_type(char *str);
-int		find_piece_type_bis(char *str);
-int		find_piece_type_ter(char *str);
-int		find_piece_type_quad(char *str);
-int		find_piece_type_quint(char *str);
-int		find_piece_coudes(char *str);
-int		find_piece_coudes_bis(char *str);
-int		find_piece_coudes_ter(char *str);
-int		find_piece_square(char *str);
+int					checkfile(char *file, t_lst *list);
+int					find_piece_type(char *str);
+int					find_piece_type_bis(char *str);
+int					find_piece_type_ter(char *str);
+int					find_piece_type_quad(char *str);
+int					find_piece_type_quint(char *str);
+int					find_piece_coudes(char *str);
+int					find_piece_coudes_bis(char *str);
+int					find_piece_coudes_ter(char *str);
+int					find_piece_square(char *str);
+t_lst				*ft_newnode(t_lst *l, int i, int type);
+void				show_list(t_lst *l);
 
 #endif

@@ -18,7 +18,8 @@ void	fillit(char *file)
 	t_lst	list;
 
 	if (!checkfile(file, &list))
-		return;
+		return ;
+	show_list(&list);
 	return ;
 }
 

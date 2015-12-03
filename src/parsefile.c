@@ -24,15 +24,52 @@ int			ft_parse_error(int i, char *file)
 	return (0);
 }
 
+int			ft_piece_error(int i, char *file)
+{
+	ft_putstr_fd("Parse error around line ", 2);
+	ft_putstr_fd(ft_itoa(i), 2);
+	ft_putchar(' ');
+	ft_putendl_fd(file, 2);
+	return (0);
+}
+
+t_lst		*ft_newnode(t_lst *l, int i, int type)
+{
+	t_lst	*new;
+	t_lst	*tmp;
+
+	tmp = l;
+	if(!(new = (t_lst*)malloc(sizeof(t_lst))))
+		return (NULL);
+	new->letter = (64 + (i / 5));
+	new->used = 0;
+	new->type = type;
+	new->pos[0] = 0;
+	new->pos[1] = 0;
+	new->next = NULL;
+	while (tmp->next)
+		tmp = tmp->next;
+	tmp->next = new;
+	return (l);
+}
+
+void		show_list(t_lst *l)
+{
+	while(l)
+	{
+		ft_putendl_fd(ft_itoa(l->type), 2);
+		l = l->next;
+	}
+}
+
 void		appendpiece(int i, t_lst *list, char *piece)
 {
-	int type;
-	(void)i;
-	(void)list;
-	ft_putendl_fd(piece, 2);
+	int		type;
+	t_lst	*newback;
+
 	if ((type = find_piece_type(piece)) == 0)
-		ft_parse_error(i, "lol");
-	return ;
+		exit (ft_piece_error(i / 5, "bad puzzle"));
+	newback = ft_newnode(list, i, type);
 }
 
 int			goodline(char *str)
