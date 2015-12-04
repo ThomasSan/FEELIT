@@ -6,7 +6,7 @@
 /*   By: tsanzey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/04 11:43:08 by tsanzey           #+#    #+#             */
-/*   Updated: 2015/12/04 12:03:21 by tsanzey          ###   ########.fr       */
+/*   Updated: 2015/12/04 18:17:44 by mdebelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@
 void	ft_putintab(t_lst *l)
 {
 	char	**tab;
-	(void)l;
 
+	(void)l;
 	tab = ft_alloc_tab();
 	ft_displaytab(tab);
 }
+

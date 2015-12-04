@@ -6,7 +6,7 @@
 /*   By: mdebelle <mdebelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 18:35:27 by mdebelle          #+#    #+#             */
-/*   Updated: 2015/12/03 15:20:02 by tsanzey          ###   ########.fr       */
+/*   Updated: 2015/12/04 18:27:14 by mdebelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ void				ft_tabinit(char **tab);
 void				ft_putintab(t_lst *l);
 char				**ft_alloc_tab(void);
 
-
 void				ft_putbarre1(t_lst *elem);
 void				ft_putbarre2(t_lst *elem);
 void				ft_putcoude1(t_lst *elem);
@@ -81,3 +80,4 @@ void				ft_puttetris3(t_lst *elem);
 void				ft_puttetris4(t_lst *elem);
 
 #endif
+

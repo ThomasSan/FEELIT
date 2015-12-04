@@ -6,14 +6,14 @@
 /*   By: mdebelle <mdebelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 19:04:25 by mdebelle          #+#    #+#             */
-/*   Updated: 2015/12/02 10:53:00 by tsanzey          ###   ########.fr       */
+/*   Updated: 2015/12/04 18:31:22 by mdebelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
 #include "fillit.h"
+#include "libft.h"
 #include "gnl.h"
-#include <stdio.h>
 
 int			ft_parse_error(int i, char *file)
 {
@@ -33,13 +33,13 @@ int			ft_piece_error(int i, char *file)
 	return (0);
 }
 
-void			ft_newnode(t_lst *l, int i, int type)
+void		ft_newnode(t_lst *l, int i, int type)
 {
 	t_lst	*new;
 	t_lst	*tmp;
 
 	tmp = l;
-	if(!(new = (t_lst*)malloc(sizeof(t_lst))))
+	if (!(new = (t_lst*)malloc(sizeof(t_lst))))
 		return ;
 	new->letter = (64 + (i / 5));
 	new->used = 0;
@@ -54,7 +54,7 @@ void			ft_newnode(t_lst *l, int i, int type)
 
 void		show_list(t_lst *l)
 {
-	while(l)
+	while (l)
 	{
 		ft_putendl_fd(ft_itoa(l->type), 2);
 		l = l->next;
@@ -76,7 +76,7 @@ void		appendpiece(int i, t_lst *list, char *piece)
 	int		type;
 
 	if ((type = find_piece_type(piece)) == 0)
-		exit (ft_piece_error(i / 5, "bad puzzle"));
+		exit(ft_piece_error(i / 5, "bad puzzle"));
 	if (i / 5 == 1)
 		ft_firstnode(list, i, type);
 	else
@@ -109,13 +109,13 @@ int			checkfile(char *file, t_lst *list)
 	if ((fd = open(file, O_RDONLY)) == -1)
 		return (0);
 	i = 1;
-	while(get_next_line(fd, &line) == 1)
+	while (get_next_line(fd, &line) == 1)
 	{
 		if (goodline(line) == 1)
 		{
 			if (i % 5 != 0)
 			{
-				if (i%5 == 1)
+				if (i % 5 == 1)
 					piece = ft_strdup(line);
 				else 
 					piece = ft_strjoin(piece, line);
@@ -135,3 +135,4 @@ int			checkfile(char *file, t_lst *list)
 	}
 	return (1);
 }
+

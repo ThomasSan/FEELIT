@@ -6,7 +6,7 @@
 /*   By: tsanzey <tsanzey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/02 13:17:52 by tsanzey           #+#    #+#             */
-/*   Updated: 2015/12/02 16:40:43 by tsanzey          ###   ########.fr       */
+/*   Updated: 2015/12/04 18:26:00 by mdebelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,17 @@ char		**ft_alloc_tab(void)
 
 void		ft_tabinit(char **tab)
 {
-	int	i;
-	int j;
+	int		i;
+	int		j;
 
-	i = 0;			
+	i = 0;		
 	while (i < 28)
 	{
 		j = 0;
 		while (j < 28)
 		{
 			tab[i][j] = '.';
-			j++;	
+			j++;
 		}
 		tab[i][j] = '\0';
 		i++;
@@ -60,3 +60,4 @@ void		ft_displaytab(char **tab)
 		i++;
 	}
 }
+
