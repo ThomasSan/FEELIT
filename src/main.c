@@ -19,7 +19,7 @@ void	fillit(char *file)
 
 	if (!checkfile(file, &list))
 		return ;
-	show_list(&list);
+	ft_putintab(&list);
 	return ;
 }
 

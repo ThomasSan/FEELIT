@@ -6,12 +6,12 @@
 #    By: mdebelle <mdebelle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/01 18:33:59 by mdebelle          #+#    #+#              #
-#    Updated: 2015/12/03 15:18:40 by tsanzey          ###   ########.fr        #
+#    Updated: 2015/12/04 14:49:37 by tsanzey          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fillit
-SRC = main.c gnl.c parsefile.c fill.c piece.c piece_coudes.c
+SRC = main.c gnl.c parsefile.c fill.c piece.c piece_coudes.c putitin.c
 OBJ = $(SRC:%.c=obj/%.o)
 
 CXX = clang

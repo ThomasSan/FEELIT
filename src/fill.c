@@ -14,41 +14,39 @@
 #include "libft.h"
 #include <stdlib.h>
 
-char		**ft_alloc_tab(int	nbpieces)
+char		**ft_alloc_tab(void)
 {
 	char	**tab;
 	int		i;
 
 	i = 0;
 	tab = (char **)malloc(sizeof(char *) * (29));
-	while (i < nbpieces)
+	while (i < 29)
 	{
-		*tab = (char *)malloc(sizeof(char) * (29));
+		tab[i] = (char *)malloc(sizeof(char) * (29));
 		i++;
 	}
+	ft_tabinit(tab);
 	return (tab);
 }
 
-char		**ft_tabinit(char **tab)
+void		ft_tabinit(char **tab)
 {
 	int	i;
 	int j;
 
-	i = 0;
-	while (i < (29))
+	i = 0;			
+	while (i < 28)
 	{
 		j = 0;
-		while (j < (29) - 1)
+		while (j < 28)
 		{
 			tab[i][j] = '.';
 			j++;	
 		}
-		tab[i][j] = '\n';
-		j++;
 		tab[i][j] = '\0';
 		i++;
 	}
-	return (tab);
 }
 
 void		ft_displaytab(char **tab)
@@ -58,7 +56,7 @@ void		ft_displaytab(char **tab)
 	i = 0;
 	while (tab[i])
 	{
-		ft_putstr(tab[i]);
+		ft_putendl(tab[i]);
 		i++;
 	}
 }

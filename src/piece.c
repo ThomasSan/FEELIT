@@ -25,7 +25,6 @@ int		find_piece_type(char *str)
 		|| (ft_strcmp("........####....", str) == 0)
 		|| (ft_strcmp("............####", str) == 0))
 		return (BARRE_2);
-	
 	return (find_piece_type_bis(str));
 }
 
