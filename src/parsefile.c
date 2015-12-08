@@ -15,6 +15,7 @@
 #include "libft.h"
 #include "gnl.h"
 
+
 int			goodline(char *str)
 {
 	int		i;

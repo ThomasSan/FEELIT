@@ -58,9 +58,15 @@ int			appendpiece(int i, t_lst **list, char *piece)
 	if ((type = find_piece_type(piece)) == 0)
 		exit(ft_error());
 	if (i / 5 == 1)
+	{
+		ft_putendl_fd("tgtgtgtg\n", 2);
 		ft_firstnode(list, i, type);
+	}
 	else
+	{
+		ft_putendl_fd("tda\n", 2);
 		ft_newnode(list, i, type);
+	}
 	return (1);
 }
 
