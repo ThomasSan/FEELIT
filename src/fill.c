@@ -14,16 +14,16 @@
 #include "libft.h"
 #include <stdlib.h>
 
-char		**ft_alloc_tab(void)
+char		**ft_alloc_tab(int size)
 {
 	char	**tab;
 	int		i;
 
 	i = 0;
-	tab = (char **)malloc(sizeof(char *) * (29));
-	while (i < 29)
+	tab = (char **)malloc(sizeof(char *) * (size));
+	while (i < size)
 	{
-		tab[i] = (char *)malloc(sizeof(char) * (29));
+		tab[i] = (char *)malloc(sizeof(char) * (size));
 		i++;
 	}
 	ft_tabinit(tab);

@@ -42,6 +42,7 @@ typedef struct		s_lst
 	struct s_lst	*next;
 }					t_lst;
 
+int					ft_error(void);
 int					checkfile(char *file, t_lst *list);
 int					find_piece_type(char *str);
 int					find_piece_type_bis(char *str);
@@ -56,8 +57,14 @@ void				ft_newnode(t_lst **l, int i, int type);
 void				show_list(t_lst *l);
 void				ft_displaytab(char **tab);
 void				ft_tabinit(char **tab);
-void				ft_putintab(t_lst *l);
-char				**ft_alloc_tab(void);
+void				ft_putintab(t_lst *l, int size);
+char				**ft_alloc_tab(int size);
+
+
+void				ft_newnode(t_lst **l, int i, int type);
+void				show_list(t_lst *l);
+void				ft_firstnode(t_lst **l, int i, int type);
+int					appendpiece(int i, t_lst **list, char *piece);
 
 void				ft_array_fun(void);
 void				ft_putbarre1(t_lst *elem, char **tab);
