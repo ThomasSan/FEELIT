@@ -6,7 +6,7 @@
 /*   By: tsanzey <tsanzey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/02 12:16:10 by tsanzey           #+#    #+#             */
-/*   Updated: 2015/12/02 12:16:13 by tsanzey          ###   ########.fr       */
+/*   Updated: 2015/12/04 18:23:42 by mdebelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int		color_option(char *name, char *option)
 {
 	if (ft_strcmp(option, "-c") == 0)
 		return (1);
-	return(ft_usage(name));
+	return (ft_usage(name));
 }
 
 int		main(int argc, char **argv)

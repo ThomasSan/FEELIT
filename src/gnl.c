@@ -6,13 +6,17 @@
 /*   By: mdebelle <mdebelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 18:16:45 by mdebelle          #+#    #+#             */
-/*   Updated: 2015/12/02 13:18:49 by tsanzey          ###   ########.fr       */
+/*   Updated: 2015/12/04 18:30:04 by mdebelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <unistd.h>
+#include "libft.h"
 #include "gnl.h"
 
-int    	get_next_line(int const fd, char **line)
+int					get_next_line(int const fd, char **line)
 {
 	static char		*str = NULL;
 	int				i;
@@ -80,3 +84,4 @@ int		ft_buffer_filling(int const fd, char **str)
 	}
 	return (i);
 }
+
