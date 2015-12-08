@@ -40,6 +40,7 @@ int		color_option(char *name, char *option)
 
 int		main(int argc, char **argv)
 {
+	ft_array_fun();
 	if (argc < 2 || argc > 3)
 		return (ft_usage(argv[0]));
 	if (argc == 2)

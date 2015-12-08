@@ -17,28 +17,16 @@
 
 int			ft_parse_error(int i, char *file)
 {
-	ft_putstr_fd("Parse error around line ", 2);
-	ft_putstr_fd(ft_itoa(i), 2);
-	ft_putstr_fd(" in ", 2);
-	ft_putendl_fd(file, 2);
+	ft_putendl_fd("Error.", 2);
 	return (0);
 }
 
-int			ft_piece_error(int i, char *file)
-{
-	ft_putstr_fd("Parse error around line ", 2);
-	ft_putstr_fd(ft_itoa(i), 2);
-	ft_putchar(' ');
-	ft_putendl_fd(file, 2);
-	return (0);
-}
-
-void			ft_newnode(t_lst *l, int i, int type)
+void			ft_newnode(t_lst **l, int i, int type)
 {
 	t_lst	*new;
 	t_lst	*tmp;
 
-	tmp = l;
+	tmp = *l;
 	if(!(new = (t_lst*)malloc(sizeof(t_lst))))
 		return ;
 	new->letter = (64 + (i / 5));
@@ -61,17 +49,17 @@ void		show_list(t_lst *l)
 	}
 }
 
-void		ft_firstnode(t_lst *l, int i, int type)
+void		ft_firstnode(t_lst **l, int i, int type)
 {
-	l->letter = (64 + (i / 5));
-	l->used = 0;
-	l->type = type;
-	l->pos[0] = 0;
-	l->pos[1] = 0;
-	l->next = NULL;
+	(*l)->letter = (64 + (i / 5));
+	(*l)->used = 0;
+	(*l)->type = type;
+	(*l)->pos[0] = 0;
+	(*l)->pos[1] = 0;
+	(*l)->next = NULL;
 }
 
-void		appendpiece(int i, t_lst *list, char *piece)
+void		appendpiece(int i, t_lst **list, char *piece)
 {
 	int		type;
 
@@ -105,6 +93,7 @@ int			checkfile(char *file, t_lst *list)
 	char	*line;
 	int		i;
 	char	*piece;
+	int		nbpieces;
 
 	if ((fd = open(file, O_RDONLY)) == -1)
 		return (0);
@@ -122,7 +111,7 @@ int			checkfile(char *file, t_lst *list)
 			}
 			else if (ft_strlen(line) == 0)
 			{
-				appendpiece(i, list, piece);
+				appendpiece(i, &list, piece);
 				free(piece);
 			}
 			else
