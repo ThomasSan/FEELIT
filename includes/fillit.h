@@ -64,6 +64,7 @@ void				ft_newnode(t_lst **l, int i, int type);
 void				ft_firstnode(t_lst **l, int type);
 int					appendpiece(int i, t_lst **list, char *piece);
 int					ft_lstlen(t_lst *l);
+void				ft_lstcircl(t_lst *l);
 
 void				ft_array_fun(void);
 void				ft_putbarre1(t_lst *elem, char **tab, int size);

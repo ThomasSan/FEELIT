@@ -30,6 +30,7 @@ void	fillit(char *file)
 		return ;
 	}
 	size = ft_lstlen(&list);
+	// ft_lstcircl(&list);
 	ft_putintab(&list, size);
 	return ;
 }

@@ -12,7 +12,6 @@
 
 #include "fillit.h"
 #include "libft.h"
-#include <stdio.h>
 
 void			ft_newnode(t_lst **l, int i, int type)
 {
@@ -46,6 +45,16 @@ int			ft_lstlen(t_lst *l)
 	return (i);
 }
 
+void		ft_lstcircl(t_lst *lst)
+{
+	t_lst	*tmp;
+
+	tmp = lst;
+	while (tmp->next)
+		tmp = tmp->next;
+	tmp->next = lst;
+}
+
 void		ft_firstnode(t_lst **l, int type)
 {
 	(*l)->letter = (65);
@@ -69,7 +78,6 @@ int			appendpiece(int i, t_lst **list, char *piece)
 		ft_firstnode(list, type);
 	else
 		ft_newnode(list, i, type);
-
 	free(piece);
 	return (1);
 }

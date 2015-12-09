@@ -12,6 +12,7 @@
 
 #include "libft.h"
 #include "fillit.h"
+
 #include <stdio.h>
 
 void	ft_array_fun(void)
@@ -70,7 +71,7 @@ void	ft_putintab(t_lst *l, int size)
 	while (tmp)
 	{
 		j = 0;
-		while (j < size)
+		while (j < size && tmp->used == 0)
 		{
 			tmp->pos[0] = j;
 			i = 0;		
@@ -88,6 +89,8 @@ void	ft_putintab(t_lst *l, int size)
 	{
 		free(tab);
 		ft_resetlst(l);
+		// pas opti, il faut essayer de start avec tout les elements avant de up la tab size
+		// il y a une function pour passer la liste chainee en circulaire
 		return (ft_putintab(l, size + 1));
 	}
 	ft_displaytab(tab);
