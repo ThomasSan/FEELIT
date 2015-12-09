@@ -12,8 +12,9 @@
 
 #include "fillit.h"
 
-void	ft_putcoude4(t_lst *elem, char **tab)
+void	ft_putcoude4(t_lst *elem, char **tab, int size)
 {
+	if ((elem->pos[0] + 1) < size && (elem->pos[1] + 2) < size)
 	if ((tab[elem->pos[0] + 1][elem->pos[1]] == '.')
 			&& (tab[elem->pos[0] + 1][elem->pos[1] + 1] == '.')
 			&& (tab[elem->pos[0] + 1][elem->pos[1] + 2] == '.')
@@ -27,8 +28,9 @@ void	ft_putcoude4(t_lst *elem, char **tab)
 	}
 }
 
-void	ft_putcoude5(t_lst *elem, char **tab)
+void	ft_putcoude5(t_lst *elem, char **tab, int size)
 {
+	if ((elem->pos[0] + 2) < size && (elem->pos[1] + 1) < size)
 	if ((tab[elem->pos[0]][elem->pos[1]] == '.')
 			&& (tab[elem->pos[0]][elem->pos[1] + 1] == '.')
 			&& (tab[elem->pos[0] + 1][elem->pos[1]] == '.')
@@ -42,8 +44,9 @@ void	ft_putcoude5(t_lst *elem, char **tab)
 	}
 }
 
-void	ft_putcoude6(t_lst *elem, char **tab)
+void	ft_putcoude6(t_lst *elem, char **tab, int size)
 {
+	if ((elem->pos[0] + 2) < size && (elem->pos[1] + 1) < size)
 	if ((tab[elem->pos[0]][elem->pos[1]] == '.')
 			&& (tab[elem->pos[0]][elem->pos[1] + 1] == '.')
 			&& (tab[elem->pos[0] + 1][elem->pos[1] + 1] == '.')
@@ -57,8 +60,9 @@ void	ft_putcoude6(t_lst *elem, char **tab)
 	}
 }
 
-void	ft_putcoude7(t_lst *elem, char **tab)
+void	ft_putcoude7(t_lst *elem, char **tab, int size)
 {
+	if ((elem->pos[0] + 2) < size && (elem->pos[1] + 1) < size)
 	if ((tab[elem->pos[0]][elem->pos[1] + 1] == '.')
 			&& (tab[elem->pos[0] + 1][elem->pos[1] + 1] == '.')
 			&& (tab[elem->pos[0] + 2][elem->pos[1] + 1] == '.')
@@ -72,8 +76,9 @@ void	ft_putcoude7(t_lst *elem, char **tab)
 	}
 }
 
-void	ft_putcoude8(t_lst *elem, char **tab)
+void	ft_putcoude8(t_lst *elem, char **tab, int size)
 {
+	if ((elem->pos[0] + 2) < size && (elem->pos[1] + 1) < size)
 	if ((tab[elem->pos[0]][elem->pos[1]] == '.')
 			&& (tab[elem->pos[0] + 1][elem->pos[1]] == '.')
 			&& (tab[elem->pos[0] + 2][elem->pos[1]] == '.')

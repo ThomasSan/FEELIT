@@ -20,26 +20,26 @@ char		**ft_alloc_tab(int size)
 	int		i;
 
 	i = 0;
-	tab = (char **)malloc(sizeof(char *) * (size));
+	tab = (char **)malloc(sizeof(char *) * (size) + 1);
 	while (i < size)
 	{
-		tab[i] = (char *)malloc(sizeof(char) * (size));
+		tab[i] = (char *)malloc(sizeof(char) * (size) + 1);
 		i++;
 	}
-	ft_tabinit(tab);
+	ft_tabinit(tab, size);
 	return (tab);
 }
 
-void		ft_tabinit(char **tab)
+void		ft_tabinit(char **tab, int size)
 {
 	int		i;
 	int		j;
 
-	i = 0;		
-	while (i < 28)
+	i = 0;
+	while (i < size)
 	{
 		j = 0;
-		while (j < 28)
+		while (j < size)
 		{
 			tab[i][j] = '.';
 			j++;

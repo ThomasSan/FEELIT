@@ -33,8 +33,9 @@ int			goodline(char *str)
 }
 
 
-int			lol(int i, t_lst **list, char *piece, char *line)
+char		 *cat_piece(int i, t_lst **list, char *piece, char *line)
 {
+	(void)list;
 	if (i % 5 != 0)
 	{
 		if (i % 5 == 1)
@@ -42,14 +43,11 @@ int			lol(int i, t_lst **list, char *piece, char *line)
 		else 
 			piece = ft_strjoin(piece, line);
 	}
-	else if (ft_strlen(line) == 0)
-	{
-		printf("pice = %s\n", piece);
-		appendpiece(i, list, piece);
-	}
+	/*else if (ft_strlen(line) == 0)
+		appendpiece(i, list, piece);*/
 	else
-		return (0);
-	return (1);
+		return (NULL);
+	return (piece);
 }
 
 int			checkfile(char *file, t_lst *list)
@@ -67,14 +65,17 @@ int			checkfile(char *file, t_lst *list)
 	{
 		if (goodline(line) == 1)
 		{
-			if (!lol(i, &list, piece, line))
-				return (0);
+			piece = cat_piece(i, &list, piece, line);
+			if (i % 5 == 4)
+				appendpiece(i, &list, piece);
 		}
 		else
 			return (0);
 		free(line);
 		i++;
 	}
+	printf("i = %d\n", i);
+	if (i % 5 != 4)
+		return (0);
 	return (1);
 }
-

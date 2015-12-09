@@ -6,7 +6,7 @@
 /*   By: tsanzey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/04 11:43:08 by tsanzey           #+#    #+#             */
-/*   Updated: 2015/12/04 18:17:44 by mdebelle         ###   ########.fr       */
+/*   Updated: 2015/12/09 14:23:06 by tsanzey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,22 +38,57 @@ void	ft_array_fun(void)
 	f[19] = ft_puttetris4;
 }
 
+int		checktab(t_lst *l)
+{
+	while (l)
+	{
+		if (l->used == 0)
+			return (0);
+		l = l->next;
+	}
+	return (1);
+}
+
+void	ft_resetlst(t_lst *l)
+{
+	while (l)
+	{
+		l->used = 0;
+		l = l->next;
+	}
+}
+
 void	ft_putintab(t_lst *l, int size)
 {
 	char	**tab;
+	t_lst	*tmp;
+	int		i;
+	int		j;
 
+	tmp = l;
 	tab = ft_alloc_tab(size);
-	while (l)
+	while (tmp)
 	{
-		while (l->used != 1)
+		j = 0;
+		while (j < size)
 		{
-
-			f[l->type](l, tab);
-			l->pos[1] += 1;
+			tmp->pos[0] = j;
+			i = 0;		
+			while (i < size && tmp->used == 0)
+			{
+				f[tmp->type](tmp, tab, size);
+				tmp->pos[1] = i;
+				i++;
+			}
+			j++;
 		}
-		l = l->next;
+		tmp = tmp->next;
 	}
-	//if problem ft_putintab(l, size+1)
+	if (checktab(l) == 0)
+	{
+		free(tab);
+		ft_resetlst(l);
+		return (ft_putintab(l, size + 1));
+	}
 	ft_displaytab(tab);
 }
-

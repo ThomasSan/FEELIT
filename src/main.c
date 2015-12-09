@@ -12,7 +12,6 @@
 
 #include "fillit.h"
 #include "libft.h"
-#include <stdio.h>
 
 int			ft_error(void)
 {
@@ -30,8 +29,7 @@ void	fillit(char *file)
 		ft_error();
 		return ;
 	}
-	size = 4;
-	printf("tada\n");
+	size = ft_lstlen(&list);
 	ft_putintab(&list, size);
 	return ;
 }
