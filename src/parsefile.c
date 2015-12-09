@@ -43,7 +43,10 @@ int			lol(int i, t_lst **list, char *piece, char *line)
 			piece = ft_strjoin(piece, line);
 	}
 	else if (ft_strlen(line) == 0)
+	{
+		printf("pice = %s\n", piece);
 		appendpiece(i, list, piece);
+	}
 	else
 		return (0);
 	return (1);
@@ -57,7 +60,6 @@ int			checkfile(char *file, t_lst *list)
 	char	*piece;
 
 	piece = NULL;
-	printf("checkfile 01\n");
 	if ((fd = open(file, O_RDONLY)) == -1)
 		return (0);
 	i = 1;
@@ -65,7 +67,6 @@ int			checkfile(char *file, t_lst *list)
 	{
 		if (goodline(line) == 1)
 		{
-				printf("checkfile 02\n");
 			if (!lol(i, &list, piece, line))
 				return (0);
 		}
