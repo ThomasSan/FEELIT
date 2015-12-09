@@ -14,7 +14,7 @@
 #include "fillit.h"
 #include "libft.h"
 #include "gnl.h"
-
+#include <stdio.h>
 
 int			goodline(char *str)
 {
@@ -57,6 +57,7 @@ int			checkfile(char *file, t_lst *list)
 	char	*piece;
 
 	piece = NULL;
+	printf("checkfile 01\n");
 	if ((fd = open(file, O_RDONLY)) == -1)
 		return (0);
 	i = 1;
@@ -64,6 +65,7 @@ int			checkfile(char *file, t_lst *list)
 	{
 		if (goodline(line) == 1)
 		{
+				printf("checkfile 02\n");
 			if (!lol(i, &list, piece, line))
 				return (0);
 		}
