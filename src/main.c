@@ -13,7 +13,7 @@
 #include "fillit.h"
 #include "libft.h"
 
-int			ft_error(void)
+int		ft_error(void)
 {
 	ft_putendl_fd("error", 2);
 	return (0);
@@ -23,15 +23,22 @@ void	fillit(char *file)
 {
 	t_lst	list;
 	int		size;
+	int		nb_pieces;
 
 	if (!checkfile(file, &list))
 	{
 		ft_error();
 		return ;
 	}
-	size = ft_lstlen(&list);
-	// ft_lstcircl(&list);
-	ft_putintab(&list, size);
+	nb_pieces = ft_lstlen(&list);
+	if (nb_pieces > 26)
+	{
+		ft_error();
+		return ;
+	}
+	size = ft_sqrt(nb_pieces * 4);
+	ft_lstcircl(&list);
+	ft_putintab(&list, size, nb_pieces);
 	return ;
 }
 

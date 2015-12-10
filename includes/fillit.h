@@ -53,11 +53,13 @@ int					find_piece_coudes(char *str);
 int					find_piece_coudes_bis(char *str);
 int					find_piece_coudes_ter(char *str);
 int					find_piece_square(char *str);
+int					ft_sqrt(int n);
 void				ft_newnode(t_lst **l, int i, int type);
 void				ft_displaytab(char **tab);
 void				ft_tabinit(char **tab, int size);
-void				ft_putintab(t_lst *l, int size);
+void				ft_putintab(t_lst *l, int size, int nb_pieces);
 char				**ft_alloc_tab(int size);
+char				**ft_copyarray(char **src, int size);
 
 
 void				ft_newnode(t_lst **l, int i, int type);

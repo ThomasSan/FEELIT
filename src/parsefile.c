@@ -31,15 +31,14 @@ int			goodline(char *str)
 	return (0);
 }
 
-
-char		 *cat_piece(int i, t_lst **list, char *piece, char *line)
+char		*cat_piece(int i, t_lst **list, char *piece, char *line)
 {
 	(void)list;
 	if (i % 5 != 0)
 	{
 		if (i % 5 == 1)
 			piece = ft_strdup(line);
-		else 
+		else
 			piece = ft_strjoin(piece, line);
 	}
 	else
@@ -54,7 +53,6 @@ int			checkfile(char *file, t_lst *list)
 	int		i;
 	char	*piece;
 
-	piece = NULL;
 	if ((fd = open(file, O_RDONLY)) == -1)
 		return (0);
 	i = 1;
@@ -71,7 +69,7 @@ int			checkfile(char *file, t_lst *list)
 		free(line);
 		i++;
 	}
-	if (i % 5 != 0	)
+	if (i % 5 != 0)
 		return (0);
 	return (1);
 }

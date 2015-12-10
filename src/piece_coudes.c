@@ -99,4 +99,3 @@ int		find_piece_square(char *str)
 	else
 		return (0);
 }
-

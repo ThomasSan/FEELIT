@@ -98,4 +98,3 @@ int		find_piece_type_quad(char *str)
 		return (TETRIS_4);
 	return (find_piece_coudes(str));
 }
-

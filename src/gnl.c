@@ -16,7 +16,7 @@
 #include "libft.h"
 #include "gnl.h"
 
-int					get_next_line(int const fd, char **line)
+int		get_next_line(int const fd, char **line)
 {
 	static char		*str = NULL;
 	int				i;
@@ -84,4 +84,3 @@ int		ft_buffer_filling(int const fd, char **str)
 	}
 	return (i);
 }
-

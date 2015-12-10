@@ -22,13 +22,13 @@ void	ft_array_fun(void)
 	f[2] = ft_putbarre2;
 	f[3] = ft_putcoude1;
 	f[4] = ft_putcoude2;
-	f[5] = ft_putcoude3; 
-	f[6] = ft_putcoude4; 
-	f[7] = ft_putcoude5; 
-	f[8] = ft_putcoude6; 
-	f[9] = ft_putcoude7; 
-	f[10] = ft_putcoude8; 
-	f[11] = ft_putsquare; 
+	f[5] = ft_putcoude3;
+	f[6] = ft_putcoude4;
+	f[7] = ft_putcoude5;
+	f[8] = ft_putcoude6;
+	f[9] = ft_putcoude7;
+	f[10] = ft_putcoude8;
+	f[11] = ft_putsquare;
 	f[12] = ft_putzigzag1;
 	f[13] = ft_putzigzag2;
 	f[14] = ft_putzigzag3;
@@ -39,59 +39,95 @@ void	ft_array_fun(void)
 	f[19] = ft_puttetris4;
 }
 
-int		checktab(t_lst *l)
+int		checktab(t_lst *l, int size)
 {
-	while (l)
+	while (size > 0)
 	{
 		if (l->used == 0)
 			return (0);
 		l = l->next;
+		size--;
 	}
 	return (1);
 }
 
-void	ft_resetlst(t_lst *l)
+void	ft_resetlst(t_lst *l, int size)
 {
-	while (l)
+	while (size > 0)
 	{
 		l->used = 0;
 		l = l->next;
+		size--;
 	}
 }
 
-void	ft_putintab(t_lst *l, int size)
+int		ft_is_good(char **tab, t_lst *l, int start, int nb_pieces)
 {
-	char	**tab;
-	t_lst	*tmp;
+	int		size;
+	int		i;
+	int		j;
+	char	**oldtab;
+
+	size = ft_sqrt(nb_pieces * 4);
+	oldtab = ft_copyarray(tab, size);
+	if (checktab(l, size))
+		return (1);
+	j = 0;
+	while (j < size)
+	{
+		i = 0;
+		while (i <size)
+		{
+			l->pos[1] = i;
+			f[l->type](l, tab, size);
+			i++;
+		}
+		j++;
+	}
+
+}
+/*void	ft_is_good(char **tab, t_lst *l, int nb_pieces)
+{
+	int		size;
 	int		i;
 	int		j;
 
-	tmp = l;
-	tab = ft_alloc_tab(size);
-	while (tmp)
+	size = ft_sqrt(nb_pieces * 4);
+	printf("first letter = %c\n", l->letter);
+	while (0 < nb_pieces)
 	{
 		j = 0;
-		while (j < size && tmp->used == 0)
+		while (j < size && l->used == 0)
 		{
-			tmp->pos[0] = j;
-			i = 0;		
-			while (i < size && tmp->used == 0)
+			l->pos[0] = j;
+			i = 0;
+			while (i < size && l->used == 0)
 			{
-				f[tmp->type](tmp, tab, size);
-				tmp->pos[1] = i;
+				l->pos[1] = i;
+				f[l->type](l, tab, size);
 				i++;
 			}
 			j++;
 		}
-		tmp = tmp->next;
+		printf("letter = %c & used = %d\n", l->letter, l->used);
+		l = l->next;
+		nb_pieces--;
 	}
-	if (checktab(l) == 0)
-	{
+}*/
+
+void	ft_putintab(t_lst *l, int size, int nb_pieces)
+{
+	char	**tab;
+	int		start;
+
+	start = 0;
+	tab = ft_alloc_tab(size);
+	ft_is_good(tab, l, start, nb_pieces);
+	if (checktab(l, nb_pieces) == 0)
+	{	
 		free(tab);
-		ft_resetlst(l);
-		// pas opti, il faut essayer de start avec tout les elements avant de up la tab size
-		// il y a une function pour passer la liste chainee en circulaire
-		return (ft_putintab(l, size + 1));
+		ft_resetlst(l, nb_pieces);	
+		return (ft_putintab(l = l->next, size, nb_pieces));
 	}
 	ft_displaytab(tab);
 }

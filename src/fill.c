@@ -61,3 +61,18 @@ void		ft_displaytab(char **tab)
 	}
 }
 
+char		**ft_copyarray(char **src, int size)
+{
+	int		i;
+	char	**dst;
+
+	i = 0;
+	dst = (char **)malloc(sizeof(char *) * size + 1);
+	while (i < size)
+	{
+		dst[i] = ft_strdup(src[i]);
+		i++;
+	}
+	dst[i] = NULL;
+	return (dst);
+}
