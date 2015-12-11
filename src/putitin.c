@@ -39,6 +39,30 @@ void	ft_array_fun(void)
 	f[19] = ft_puttetris4;
 }
 
+void	ft_array_fun2(void)
+{
+	f2[0] = NULL;
+	f2[1] = ft_rmbarre1;
+	f2[2] = ft_rmbarre2;
+	f2[3] = ft_rmcoude1;
+	f2[4] = ft_rmcoude2;
+	f2[5] = ft_rmcoude3;
+	f2[6] = ft_rmcoude4;
+	f2[7] = ft_rmcoude5;
+	f2[8] = ft_rmcoude6;
+	f2[9] = ft_rmcoude7;
+	f2[10] = ft_rmcoude8;
+	f2[11] = ft_rmsquare;
+	f2[12] = ft_rmzigzag1;
+	f2[13] = ft_rmzigzag2;
+	f2[14] = ft_rmzigzag3;
+	f2[15] = ft_rmzigzag4;
+	f2[16] = ft_rmtetris1;
+	f2[17] = ft_rmtetris2;
+	f2[18] = ft_rmtetris3;
+	f2[19] = ft_rmtetris4;
+}
+
 int		checktab(t_lst *l, int size)
 {
 	while (size > 0)
@@ -60,41 +84,66 @@ void	ft_resetlst(t_lst *l, int size)
 		size--;
 	}
 }
-
-int		ft_is_good(char **tab, t_lst *l, int start, int nb_pieces)
+void	rm_tetris(char **tab, t_lst *l, int size)
 {
-	int		size;
-	int		i;
-	int		j;
-	char	**oldtab;
+	int	i;
+	int	j;
 
-	size = ft_sqrt(nb_pieces * 4);
-	oldtab = ft_copyarray(tab, size);
-	if (checktab(l, size))
-		return (1);
 	j = 0;
 	while (j < size)
 	{
+		l->pos[0] = j;
 		i = 0;
-		while (i <size)
+		while (i < size)
 		{
 			l->pos[1] = i;
-			f[l->type](l, tab, size);
+			f2[l->type](l, tab, size);
 			i++;
 		}
 		j++;
 	}
-
 }
-/*void	ft_is_good(char **tab, t_lst *l, int nb_pieces)
+
+int		ft_is_good(char **tab, t_lst *l, int size, int nb_pieces)
 {
-	int		size;
 	int		i;
 	int		j;
 
-	size = ft_sqrt(nb_pieces * 4);
-	printf("first letter = %c\n", l->letter);
-	while (0 < nb_pieces)
+	if (checktab(l, size))
+		return (1);
+	j = 0;
+	while (j < size && l->used == 0)
+	{
+		l->pos[0] = j;
+		i = 0;
+		while (i <size && l->used == 0)
+		{
+			l->pos[1] = i;
+			f[l->type](l, tab, size);
+				printf("letter = %c x = %d y = %d\n", l->letter, l->pos[0], l->pos[1]);
+			if (l->used == 1)
+			{
+				if (ft_is_good(tab, l->next, size, nb_pieces))
+					return (1);
+				else
+					f2[l->type](l, tab, size);
+			}
+			i++;
+		}
+		j++;
+	}
+	return (0);
+}
+
+/*void	ft_is_good(char **tab, t_lst *l, int size, int nb_pieces)
+{
+	int		x;
+	int		i;
+	int		j;
+
+	// printf("first letter = %c\n", l->letter);
+	x = 0;
+	while (x < nb_pieces)
 	{
 		j = 0;
 		while (j < size && l->used == 0)
@@ -109,25 +158,27 @@ int		ft_is_good(char **tab, t_lst *l, int start, int nb_pieces)
 			}
 			j++;
 		}
-		printf("letter = %c & used = %d\n", l->letter, l->used);
+		// printf("letter = %c & used = %d\n", l->letter, l->used);
 		l = l->next;
-		nb_pieces--;
+		x++;
 	}
 }*/
 
 void	ft_putintab(t_lst *l, int size, int nb_pieces)
 {
 	char	**tab;
-	int		start;
 
-	start = 0;
 	tab = ft_alloc_tab(size);
-	ft_is_good(tab, l, start, nb_pieces);
-	if (checktab(l, nb_pieces) == 0)
-	{	
-		free(tab);
-		ft_resetlst(l, nb_pieces);	
-		return (ft_putintab(l = l->next, size, nb_pieces));
-	}
-	ft_displaytab(tab);
+	ft_is_good(tab, l, size, nb_pieces);
+		ft_displaytab(tab);
+	// if (checktab(l, nb_pieces) == 0)
+	// {
+	// 	free(tab);
+	// 	ft_resetlst(l, nb_pieces);
+	// 	if (l->letter == (64 + nb_pieces))
+	// 		return(ft_putintab(l = l->next, size + 1, nb_pieces));
+	// 	else
+	// 		return (ft_putintab(l = l->next, size, nb_pieces));
+	// }
+	
 }

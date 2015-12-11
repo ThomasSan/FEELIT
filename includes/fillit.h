@@ -89,5 +89,27 @@ void				ft_puttetris2(t_lst *elem, char **tab, int size);
 void				ft_puttetris3(t_lst *elem, char **tab, int size);
 void				ft_puttetris4(t_lst *elem, char **tab, int size);
 
+void				ft_array_fun2(void);
+void				ft_rmbarre1(t_lst *elem, char **tab, int size);
+void				ft_rmbarre2(t_lst *elem, char **tab, int size);
+void				ft_rmcoude1(t_lst *elem, char **tab, int size);
+void				ft_rmcoude2(t_lst *elem, char **tab, int size);
+void				ft_rmcoude3(t_lst *elem, char **tab, int size);
+void				ft_rmcoude4(t_lst *elem, char **tab, int size);
+void				ft_rmcoude5(t_lst *elem, char **tab, int size);
+void				ft_rmcoude6(t_lst *elem, char **tab, int size);
+void				ft_rmcoude7(t_lst *elem, char **tab, int size);
+void				ft_rmcoude8(t_lst *elem, char **tab, int size);
+void				ft_rmsquare(t_lst *elem, char **tab, int size);
+void				ft_rmzigzag1(t_lst *elem, char **tab, int size);
+void				ft_rmzigzag2(t_lst *elem, char **tab, int size);
+void				ft_rmzigzag3(t_lst *elem, char **tab, int size);
+void				ft_rmzigzag4(t_lst *elem, char **tab, int size);
+void				ft_rmtetris1(t_lst *elem, char **tab, int size);
+void				ft_rmtetris2(t_lst *elem, char **tab, int size);
+void				ft_rmtetris3(t_lst *elem, char **tab, int size);
+void				ft_rmtetris4(t_lst *elem, char **tab, int size);
+
 void	(*f[20])(t_lst*, char**, int);
+void	(*f2[20])(t_lst*, char**, int);
 #endif

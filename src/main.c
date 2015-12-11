@@ -45,6 +45,7 @@ void	fillit(char *file)
 int		main(int argc, char **argv)
 {
 	ft_array_fun();
+	ft_array_fun2();
 	if (argc != 2)
 		return (ft_error());
 	fillit(argv[1]);

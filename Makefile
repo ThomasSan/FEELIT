@@ -12,7 +12,8 @@
 
 NAME = fillit
 SRC = main.c gnl.c parsefile.c fill.c piece.c piece_coudes.c putitin.c \
-	  puttetris.c putcoudes.c putbarre.c putziggy.c manip_lst.c ft_sqrt.c
+	  puttetris.c putcoudes.c putbarre.c putziggy.c manip_lst.c ft_sqrt.c \
+	  rmbarre.c rmcoudes.c rmtetris.c rmziggy.c
 OBJ = $(SRC:%.c=obj/%.o)
 
 CXX = clang
