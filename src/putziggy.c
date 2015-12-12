@@ -15,6 +15,7 @@
 void	ft_putsquare(t_lst *elem, char **tab, int size)
 {
 	if ((elem->pos[0] + 1) < size && (elem->pos[1] + 1) < size)
+	{
 		if ((tab[elem->pos[0]][elem->pos[1]] == '.')
 				&& (tab[elem->pos[0]][elem->pos[1] + 1] == '.')
 				&& (tab[elem->pos[0] + 1][elem->pos[1] + 1] == '.')
@@ -26,6 +27,7 @@ void	ft_putsquare(t_lst *elem, char **tab, int size)
 			tab[elem->pos[0] + 1][elem->pos[1]] = elem->letter;
 			elem->used = 1;
 		}
+	}
 }
 
 void	ft_putzigzag1(t_lst *elem, char **tab, int size)

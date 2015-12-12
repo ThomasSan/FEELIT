@@ -119,66 +119,38 @@ int		ft_is_good(char **tab, t_lst *l, int size, int nb_pieces)
 		while (i <size && l->used == 0)
 		{
 			l->pos[1] = i;
-			f[l->type](l, tab, size);
-				printf("letter = %c x = %d y = %d\n", l->letter, l->pos[0], l->pos[1]);
+			f[l->type](l, tab, size - 1);
 			if (l->used == 1)
 			{
+				printf("letter = %c, x = %d, y = %d\n", l->letter, l->pos[0], l->pos[1]);
 				if (ft_is_good(tab, l->next, size, nb_pieces))
 					return (1);
 				else
+				{
 					f2[l->type](l, tab, size);
+					printf("letter removed = %c\n", l->letter);
+				}
 			}
 			i++;
 		}
 		j++;
 	}
+
 	return (0);
 }
-
-/*void	ft_is_good(char **tab, t_lst *l, int size, int nb_pieces)
-{
-	int		x;
-	int		i;
-	int		j;
-
-	// printf("first letter = %c\n", l->letter);
-	x = 0;
-	while (x < nb_pieces)
-	{
-		j = 0;
-		while (j < size && l->used == 0)
-		{
-			l->pos[0] = j;
-			i = 0;
-			while (i < size && l->used == 0)
-			{
-				l->pos[1] = i;
-				f[l->type](l, tab, size);
-				i++;
-			}
-			j++;
-		}
-		// printf("letter = %c & used = %d\n", l->letter, l->used);
-		l = l->next;
-		x++;
-	}
-}*/
 
 void	ft_putintab(t_lst *l, int size, int nb_pieces)
 {
 	char	**tab;
 
+printf("size %d\n", size);
 	tab = ft_alloc_tab(size);
 	ft_is_good(tab, l, size, nb_pieces);
-		ft_displaytab(tab);
-	// if (checktab(l, nb_pieces) == 0)
+	ft_displaytab(tab);
+	// else
 	// {
 	// 	free(tab);
 	// 	ft_resetlst(l, nb_pieces);
-	// 	if (l->letter == (64 + nb_pieces))
-	// 		return(ft_putintab(l = l->next, size + 1, nb_pieces));
-	// 	else
-	// 		return (ft_putintab(l = l->next, size, nb_pieces));
+	// 	return(ft_putintab(l, size + 1, nb_pieces));
 	// }
-	
 }
