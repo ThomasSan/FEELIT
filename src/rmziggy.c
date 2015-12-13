@@ -13,7 +13,7 @@ void	ft_rmsquare(t_lst *elem, char **tab, int size)
 			tab[elem->pos[0]][elem->pos[1] + 1] = '.';
 			tab[elem->pos[0] + 1][elem->pos[1] + 1] = '.';
 			tab[elem->pos[0] + 1][elem->pos[1]] = '.';
-			elem->used = 1;
+			elem->used = 0;
 		}
 }
 
@@ -29,7 +29,7 @@ void	ft_rmzigzag1(t_lst *elem, char **tab, int size)
 			tab[elem->pos[0]][elem->pos[1] + 1] = '.';
 			tab[elem->pos[0] + 1][elem->pos[1] + 1] = '.';
 			tab[elem->pos[0] + 1][elem->pos[1] + 2] = '.';
-			elem->used = 1;
+			elem->used = 0;
 		}
 }
 
@@ -45,7 +45,7 @@ void	ft_rmzigzag2(t_lst *elem, char **tab, int size)
 			tab[elem->pos[0]][elem->pos[1] + 2] = '.';
 			tab[elem->pos[0] + 1][elem->pos[1]] = '.';
 			tab[elem->pos[0] + 1][elem->pos[1] + 1] = '.';
-			elem->used = 1;
+			elem->used = 0;
 		}
 }
 
@@ -61,7 +61,7 @@ void	ft_rmzigzag3(t_lst *elem, char **tab, int size)
 			tab[elem->pos[0] + 1][elem->pos[1]] = '.';
 			tab[elem->pos[0] + 1][elem->pos[1] + 1] = '.';
 			tab[elem->pos[0] + 2][elem->pos[1] + 1] = '.';
-			elem->used = 1;
+			elem->used = 0;
 		}
 }
 
@@ -77,6 +77,6 @@ void	ft_rmzigzag4(t_lst *elem, char **tab, int size)
 			tab[elem->pos[0] + 1][elem->pos[1] + 1] = '.';
 			tab[elem->pos[0] + 1][elem->pos[1]] = '.';
 			tab[elem->pos[0] + 2][elem->pos[1]] = '.';
-			elem->used = 1;
+			elem->used = 0;
 		}
 }
