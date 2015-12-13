@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rmbarre.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tsanzey <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/12/13 15:52:40 by tsanzey           #+#    #+#             */
+/*   Updated: 2015/12/13 15:54:28 by tsanzey          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fillit.h"
 #include "libft.h"
 
 void	ft_rmbarre1(t_lst *elem, char **tab, int size)
 {
-		if ((elem->pos[0] + 3) < size)
+	if ((elem->pos[0] + 3) < size)
 		if ((tab[elem->pos[0]][elem->pos[1]] == elem->letter)
 				&& (tab[elem->pos[0] + 1][elem->pos[1]] == elem->letter)
 				&& (tab[elem->pos[0] + 2][elem->pos[1]] == elem->letter)
@@ -19,7 +31,7 @@ void	ft_rmbarre1(t_lst *elem, char **tab, int size)
 
 void	ft_rmbarre2(t_lst *elem, char **tab, int size)
 {
-		if ((elem->pos[1] + 3) < size)
+	if ((elem->pos[1] + 3) < size)
 		if ((tab[elem->pos[0]][elem->pos[1]] == elem->letter)
 				&& (tab[elem->pos[0]][elem->pos[1] + 1] == elem->letter)
 				&& (tab[elem->pos[0]][elem->pos[1] + 2] == elem->letter)
@@ -51,7 +63,7 @@ void	ft_rmcoude1(t_lst *elem, char **tab, int size)
 
 void	ft_rmcoude2(t_lst *elem, char **tab, int size)
 {
-		if ((elem->pos[0] + 1) < size && (elem->pos[1] + 2) < size)
+	if ((elem->pos[0] + 1) < size && (elem->pos[1] + 2) < size)
 		if ((tab[elem->pos[0]][elem->pos[1]] == elem->letter)
 				&& (tab[elem->pos[0]][elem->pos[1] + 1] == elem->letter)
 				&& (tab[elem->pos[0]][elem->pos[1] + 2] == elem->letter)

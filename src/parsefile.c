@@ -14,7 +14,6 @@
 #include "fillit.h"
 #include "libft.h"
 #include "gnl.h"
-#include <stdio.h>
 
 int			goodline(char *str)
 {
@@ -32,9 +31,8 @@ int			goodline(char *str)
 	return (0);
 }
 
-char		*cat_piece(int i, t_lst **list, char *piece, char *line)
+char		*cat_piece(int i, char *piece, char *line)
 {
-	(void)list;
 	if (i % 5 != 0)
 	{
 		if (i % 5 == 1)
@@ -61,7 +59,7 @@ int			checkfile(char *file, t_lst *list)
 	{
 		if (goodline(line) == 1)
 		{
-			piece = cat_piece(i, &list, piece, line);
+			piece = cat_piece(i, piece, line);
 			if (i % 5 == 4)
 				appendpiece(i, &list, piece);
 		}
@@ -70,7 +68,6 @@ int			checkfile(char *file, t_lst *list)
 		free(line);
 		i++;
 	}
-	printf("lines = %d\n", i);
 	if (i % 5 != 0)
 		return (0);
 	return (1);

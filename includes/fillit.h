@@ -60,13 +60,14 @@ void				ft_tabinit(char **tab, int size);
 void				ft_putintab(t_lst *l, int size, int nb_pieces);
 char				**ft_alloc_tab(int size);
 char				**ft_copyarray(char **src, int size);
-
-
 void				ft_newnode(t_lst **l, int i, int type);
 void				ft_firstnode(t_lst **l, int type);
 int					appendpiece(int i, t_lst **list, char *piece);
 int					ft_lstlen(t_lst *l);
 void				ft_lstcircl(t_lst *l);
+
+void				(*g_f[20])(t_lst*, char**, int);
+void				(*g_f2[20])(t_lst*, char**, int);
 
 void				ft_array_fun(void);
 void				ft_putbarre1(t_lst *elem, char **tab, int size);
@@ -110,6 +111,4 @@ void				ft_rmtetris2(t_lst *elem, char **tab, int size);
 void				ft_rmtetris3(t_lst *elem, char **tab, int size);
 void				ft_rmtetris4(t_lst *elem, char **tab, int size);
 
-void	(*f[20])(t_lst*, char**, int);
-void	(*f2[20])(t_lst*, char**, int);
 #endif

@@ -12,11 +12,35 @@
 
 #include "fillit.h"
 #include "libft.h"
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <unistd.h>
+#include <fcntl.h>
 
 int		ft_error(void)
 {
 	ft_putendl_fd("error", 2);
 	return (0);
+}
+
+int		checklastchar(char *file)
+{
+	int		fd;
+	int		ret;
+	int		i;
+	char	buf[4096];
+
+	i = 0;
+	if ((fd = open(file, O_RDONLY)) == -1)
+		return (0);
+	ret = read(fd, buf, 4096);
+	buf[ret] = '\0';
+	while (buf[i + 1])
+		i++;
+	if (buf[i] == '\n')
+		return (1);
+	else
+		return (0);
 }
 
 void	fillit(char *file)
@@ -32,6 +56,11 @@ void	fillit(char *file)
 	}
 	nb_pieces = ft_lstlen(&list);
 	if (nb_pieces > 26)
+	{
+		ft_error();
+		return ;
+	}
+	if (!checklastchar(file))
 	{
 		ft_error();
 		return ;

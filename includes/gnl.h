@@ -10,11 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GNL_H
+# define GNL_H
+
 # define BUF_SIZE 1
 
-int    	get_next_line(int const fd, char **line);
+int		get_next_line(int const fd, char **line);
 char	*ft_delete_read_line(char *s, int i);
 int		ft_buffer_filling(int const fd, char **str);
 int		ft_checking_new_line(char *s);
