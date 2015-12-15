@@ -70,10 +70,14 @@ void	ft_putintab(t_lst *l, int size, int nb_pieces)
 
 	tab = ft_alloc_tab(size);
 	if (ft_is_good(tab, l, size, nb_pieces))
-		ft_displaytab(tab);
+	{
+		ft_displaytab(tab, size);
+		free(tab);
+	}
 	else
 	{
-		free(tab);
+		if (tab)
+			free(tab);
 		ft_resetlst(l, nb_pieces);
 		return (ft_putintab(l, size + 1, nb_pieces));
 	}

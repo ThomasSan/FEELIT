@@ -49,12 +49,12 @@ void		ft_tabinit(char **tab, int size)
 	}
 }
 
-void		ft_displaytab(char **tab)
+void		ft_displaytab(char **tab, int size)
 {
 	int i;
 
 	i = 0;
-	while (tab[i])
+	while (i < size)
 	{
 		ft_putendl(tab[i]);
 		i++;
